@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(119, 241, 229);
+        }
+        
+        #mainBox {
+            background: black;
+            width: 50vw;
+            display: inline-block;
+        }
+
+        .tabs {
+            display: flex;
+            list-style-type: none;
+            background-color: rgb(119, 241, 229);
+        }
+        
+        .tabs li {
+            cursor: pointer;
+            color: white;
+            background-color: black;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            padding: 0px 5px;
+            border-radius: 10px 10px 0px 0px;
+            border: 1px solid black;
+        }
+        
+        #textcontent {
+            height: 30vh;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainBox">
+        <ul class="tabs">
+            <li>HTML</li>
+            <li style="margin: 0px 0.5px;">CSS</li>
+            <li>JAVASCRIPT</li>
+        </ul>
+        <div id="textcontent"></div>
+    </div>
+    <script>
+        tab1 = Array.from(mainBox.children)[0].children[0]
+        tab2 = Array.from(mainBox.children)[0].children[1]
+        tab3 = Array.from(mainBox.children)[0].children[2]
+        tab1.style.background='white'
+        tab1.style.color='black'
+        textcontent.innerText = "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It defines the meaning and structure of web content. It is often assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+
+        function defaultColors() {
+            Array.from(Array.from(mainBox.children)[0].children).forEach(element => {
+                element.style.background = 'black'
+                element.style.color = 'white'
+            });
+            
+        }
+        function activeTab(tabName) {
+                tabName.style.background = 'white'
+                tabName.style.color = 'black'
+        }
+        tab1.addEventListener("click", function () {
+            defaultColors()
+            activeTab(tab1)
+            textcontent.innerText = "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It defines the meaning and structure of web content. It is often assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+        })
+
+        tab2.addEventListener("click", function () {
+            defaultColors()
+            activeTab(tab2)
+            textcontent.innerText = "Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript."
+        })
+        tab3.addEventListener("click", function () {
+            defaultColors()
+            activeTab(tab3)
+            textcontent.innerText = "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2023, 98.7% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
+        })
+    </script>
+</body>
+
+</html>
